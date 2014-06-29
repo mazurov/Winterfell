@@ -1,0 +1,99 @@
+﻿{
+	"vaults_" : [
+		"Basel",
+		"Rotterdam",
+		"Stockholm Production"
+	],
+
+	"vaults" : [
+		"Basel",
+		"Rotterdam",
+		"Stockholm Production"
+	],
+
+	"view": "Web publications",
+	
+	"properties": [
+		{
+			"name": "NameOrTitle",
+			"mapping": {
+				"Basel": 0,
+				"Rotterdam": 0,
+				"Stockholm Production": 0
+			}
+		},
+		{
+			"name": "Title",
+			"mapping": {
+				"Basel": 1020,
+				"Rotterdam": 1032,
+				"Stockholm Production": 1020
+			}
+		},
+		{
+			"name": "Description",
+			"mapping": {
+				"Basel": 1021,
+				"Rotterdam": 1006,
+				"Stockholm Production": 1021
+			}
+		},
+		{
+			"name": "UNNumber",
+			"mapping": {
+				"Basel": 1019,
+				"Rotterdam": 1023,
+				"Stockholm Production": 1019
+			}
+		},
+		{
+			"name": "Language",
+			"mapping": {
+				"Basel": 1014,
+				"Rotterdam": 1004,
+				"Stockholm Production": 1014
+			}
+		},
+		{
+			"name": "PubYear",
+			"mapping": {
+				"Basel": 1088,
+				"Rotterdam": -1,
+				"Stockholm Production": 1088
+			}
+		},
+		{
+			"name": "PubMonth",
+			"mapping": {
+				"Basel": 1104,
+				"Rotterdam": -1,
+				"Stockholm Production": 1104
+			}
+		},
+		{
+			"name": "PubDate",
+			"mapping": {
+				"Basel": -1,
+				"Rotterdam": 1010,
+				"Stockholm Production": -1
+			}
+		},
+		{
+			"name": "Term",
+			"mapping": {
+				"Basel": 1174,
+				"Rotterdam": 1158,
+				"Stockholm Production": 1153
+			}
+		},
+		{
+			"name": "Chemical",
+			"mapping": {
+				"Basel": 1027,
+				"Rotterdam": 1063,
+				"Stockholm Production": 1027
+			}
+		}
+
+	]
+}
