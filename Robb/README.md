@@ -1,18 +1,23 @@
-﻿## Quick start
+﻿# Export and sync M-Files data to database  
 
-* Install service `Robb`
+## Quick start
+
+* Install service `Robb`:
+	
 	`$> Robb.exe install --sudo` 
-* Start service `Robb`
+
+* Start service `Robb`:
+	
 	`$> Robb.exe start --sudo`
 
-Look to the `Event Log` for messages with source `Robb`
-
-* Uninstall service
-	`$> Robb.exe uninstall 
+* Look to the `Event Log` for messages with source `Robb`
+* Uninstall service:
+	
+	`$> Robb.exe uninstall` 
 
 ## Configuration
 
-* `Robb.config` App settings 
+* `Robb.exe.config` App settings 
 	* interval --- Integer. Program check M-Files updates each	`interval` minute(s)
 * `ConnectionString.config` (not in repository) Database connection 
 
