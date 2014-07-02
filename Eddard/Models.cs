@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.Linq.Expressions;
 
 namespace Eddard
 {
-
+    
     public class DocumentsContext : DbContext
     {
         public DocumentsContext()
@@ -19,7 +20,9 @@ namespace Eddard
         public DbSet<Property> Properties { get; set; }
         public DbSet<PropValue> PropValues { get; set; }
         public DbSet<File> Files { get; set; }
-    }
+     }
+
+    
 
     public class Repository
     {
@@ -32,16 +35,7 @@ namespace Eddard
         public string Name { get; set; }
     }
 
-    public class ObjectWithProperties
-    {
-        public virtual ICollection<PropValue> Properties { get; set; }
-
-        public ObjectWithProperties()
-        {
-            Properties = new HashSet<PropValue>();
-        }
-    }
-
+  
     
     public class PropValue
     {
@@ -50,7 +44,7 @@ namespace Eddard
         public int PropertyValueId { get; set; }
 
         [Required]
-        public virtual Property Property { get; set; }
+        public  virtual Property Property { get; set; }
         [Required]
         public string Value { get; set; }
 
@@ -75,16 +69,17 @@ namespace Eddard
 
 
 
-    public class Document : ObjectWithProperties
+    public class Document
     {
-
+        
         public virtual ICollection<File> Files { get; set; }
+        public virtual ICollection<PropValue> Properties { get; set; }
 
         [Key]
         public Guid DocumentId { get; set; }
 
         [Required]
-        public virtual Repository Repository { get; set; }
+        public  virtual Repository Repository { get; set; }
 
         //[Index("LangAndDocIndex", 1)]
         //[Required]
@@ -94,20 +89,21 @@ namespace Eddard
         //[Required]
         //public Document Document { get; set; }
 
-        public DateTime? PubDate { get; set; }
+        public Int64 PubDate { get; set; }
 
         [Required]
         public string NameOrTitle { get; set; }
 
         [Required]
-        public DateTime Created { get; set; }
+        public Int64 Created { get; set; }
 
         [Required]
-        public DateTime LastModified { get; set; }
+        public Int64 LastModified { get; set; }
 
         public Document()
         {
             Files = new HashSet<File>();
+            Properties = new HashSet<PropValue>();
         }
     }
 

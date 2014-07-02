@@ -1,13 +1,9 @@
-﻿using System.Linq;
-using System.Net.Http;
+﻿using System.Net.Http.Formatting;
 using System.Web.Http;
-using System.Web.Http.Controllers;
 using System.Web.Http.Cors;
 using System.Web.OData.Extensions;
-using System.Web.OData.Routing;
-using System.Web.OData.Routing.Conventions;
-using Arya;
-using Microsoft.OData.Edm;
+using WebApiContrib.Formatting;
+using WebApiContrib.Formatting.Jsonp;
 
 namespace Jon
 {
@@ -18,6 +14,7 @@ namespace Jon
         {
             // Web API configuration and services
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+
             // Enables OData support by adding an OData route and enabling querying support for OData.
             // Action selector and odata media type formatters will be registered in per-controller configuration only
 
@@ -25,21 +22,24 @@ namespace Jon
             // conventions.Insert(0, new NavigationIndexRoutingConvention());
 
             config.MapODataServiceRoute(
-                routeName: "OData",
+                routeName: "odata",
                 routePrefix: "odata",
                 model: ModelBuilder.GetEdmModel()
                 );
 
             config.MapHttpAttributeRoutes();
 
-            config.Routes. MapHttpRoute(
-                name: "DefaultApi",
+            config.Routes.MapHttpRoute(
+                name: "Eddard",
                 routeTemplate: "odata/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            var cors = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(cors);
+            config.Formatters.Insert(0, new  JsonpMediaTypeFormatter(config.Formatters.JsonFormatter));
+
+
+            //var cors = new EnableCorsAttribute("*", "*", "*");
+            //config.EnableCors(cors);
         }
     }
 }

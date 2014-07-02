@@ -9,6 +9,11 @@ namespace Catelyn
     public static class Utils
     {
 
+        public static Int64 GetUnixTimeStamp(DateTime date)
+        {
+            return (Int64)(date.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+        }
+
         public static IView GetView(IVault vault, string viewName)
         {
             return vault.ViewOperations.GetViews().Cast<IView>().FirstOrDefault(view => view.Name == viewName);

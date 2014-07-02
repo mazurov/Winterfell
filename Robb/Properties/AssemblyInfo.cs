@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Bran")]
+[assembly: AssemblyTitle("Robb")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CERN")]
-[assembly: AssemblyProduct("Bran")]
+[assembly: AssemblyProduct("Robb")]
 [assembly: AssemblyCopyright("Copyright © CERN 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0207e1af-a28b-405c-913d-f51df00d72b3")]
+[assembly: Guid("d69841e5-0ee6-40a4-9c2d-6e8439a2ddeb")]
 
 // Version information for an assembly consists of the following four values:
 //
