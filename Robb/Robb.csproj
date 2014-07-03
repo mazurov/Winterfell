@@ -124,9 +124,9 @@
     <Content Include="Private.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="README.md">
+    <None Include="README.md">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
     <None Include="Robb_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

@@ -163,13 +163,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\WebApiContrib.Formatting.Jsonp\src\WebApiContrib.Formatting.Jsonp\WebApiContrib.Formatting.Jsonp.csproj">
-      <Project>{cd617362-8723-4592-a3b3-d2fbef645cd2}</Project>
-      <Name>WebApiContrib.Formatting.Jsonp</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Eddard\Eddard.csproj">
       <Project>{6838e104-9800-4d06-b0a0-66704a61e2d5}</Project>
       <Name>Eddard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApiContrib.Formatting.Jsonp\WebApiContrib.Formatting.Jsonp.csproj">
+      <Project>{cd617362-8723-4592-a3b3-d2fbef645cd2}</Project>
+      <Name>WebApiContrib.Formatting.Jsonp</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

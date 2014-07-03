@@ -29,7 +29,7 @@ Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "RobbSetup", "RobbSetup\Robb
 EndProject
 Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "JonSetup", "JonSetup\JonSetup.isproj", "{557524A5-F124-4BAE-98E9-9B14958E6803}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiContrib.Formatting.Jsonp", "..\WebApiContrib.Formatting.Jsonp\src\WebApiContrib.Formatting.Jsonp\WebApiContrib.Formatting.Jsonp.csproj", "{CD617362-8723-4592-A3B3-D2FBEF645CD2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiContrib.Formatting.Jsonp", "WebApiContrib.Formatting.Jsonp\WebApiContrib.Formatting.Jsonp.csproj", "{CD617362-8723-4592-A3B3-D2FBEF645CD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
