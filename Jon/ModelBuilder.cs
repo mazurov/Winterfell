@@ -33,6 +33,8 @@ namespace Jon
             modelBuilder.EntitySet<Property>("Properties");
             modelBuilder.EntitySet<PropValue>("PropValues");
             modelBuilder.EntitySet<Repository>("Repositories");
+            modelBuilder.EntitySet<File>("Files");
+
 
             var document = modelBuilder.EntityType<Document>();
 

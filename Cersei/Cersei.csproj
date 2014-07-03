@@ -82,13 +82,13 @@
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="MFilesAPI">
-      <Guid>{23794FC1-E97C-4426-9081-F5921C1432B8}</Guid>
+      <Guid>{B9C079AA-92DD-4FB4-A0E0-AA3198955B45}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
+      <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
   <PropertyGroup>

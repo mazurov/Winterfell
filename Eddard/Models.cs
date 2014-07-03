@@ -72,14 +72,14 @@ namespace Eddard
     public class Document
     {
         
-        public virtual ICollection<File> Files { get; set; }
-        public virtual ICollection<PropValue> Properties { get; set; }
+        public  ICollection<File> Files { get; set; }
+        public  ICollection<PropValue> Properties { get; set; }
 
         [Key]
         public Guid DocumentId { get; set; }
 
         [Required]
-        public  virtual Repository Repository { get; set; }
+        public Repository Repository { get; set; }
 
         //[Index("LangAndDocIndex", 1)]
         //[Required]

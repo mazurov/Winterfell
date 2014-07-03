@@ -25,9 +25,9 @@ namespace Jon.Controllers
 
         [EnableQuery]
         [ODataRoute("({id})")]
-        public IHttpActionResult GetEntity(Guid id)
+        public SingleResult<Document> GetEntity(Guid id)
         {
-            return Ok(SingleResult.Create<Document>(_ctx.Documents.Where(d => d.DocumentId == id)));
+            return SingleResult.Create<Document>(_ctx.Documents.Where(d => d.DocumentId == id));
         }
 
         [EnableQuery]

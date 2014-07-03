@@ -10,6 +10,11 @@ namespace Robb
 {
     class Program
     {
+        static void PressKey()
+        {
+            Console.WriteLine("Press any key to exit");
+            Console.ReadKey();
+        }
         static void Main(string[] args)
         {
             Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
@@ -33,6 +38,10 @@ namespace Robb
                 x.SetDisplayName("Robb");                       //8
                 x.SetServiceName("Robb");                       //9
                 x.UseNLog();
+                x.AfterInstall(PressKey);
+                x.AfterUninstall(PressKey);
+                
+               
             });   
         }
     }
