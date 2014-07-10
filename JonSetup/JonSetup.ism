@@ -65,7 +65,7 @@
 		<pagecount>200</pagecount>
 		<wordcount>0</wordcount>
 		<charcount/>
-		<appname>InstallShield Express</appname>
+		<appname>InstallShield</appname>
 		<security>1</security>
 	</summary>
 	
@@ -2036,6 +2036,14 @@
 		<col def="S255">ISCAReferenceFilePath</col>
 	</table>
 
+	<table name="ISDIM">
+		<col key="yes" def="s255">DIM</col>
+		<col def="S0">ISBuildSourcePath</col>
+		<col def="S255">Name</col>
+		<col def="S255">Destination</col>
+		<col def="I4">ISAttributes</col>
+	</table>
+
 	<table name="ISDIMDependency">
 		<col key="yes" def="s72">ISDIMReference_</col>
 		<col def="s255">RequiredUUID</col>
@@ -2116,6 +2124,11 @@
 	<table name="ISFeatureDIMReferences">
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">ISDIMReference_</col>
+	</table>
+
+	<table name="ISFeatureDIMs">
+		<col key="yes" def="s38">Feature_</col>
+		<col key="yes" def="s255">ISDIM_</col>
 	</table>
 
 	<table name="ISFeatureMergeModuleExcludes">
@@ -2266,6 +2279,15 @@
 		<col def="L255">Description</col>
 		<col def="L255">HelpLocation</col>
 		<col def="L255">HelpKeyword</col>
+	</table>
+
+	<table name="ISNetworkShares">
+		<col key="yes" def="s72">Component_</col>
+		<col def="S255">ServerName</col>
+		<col def="s255">ShareName</col>
+		<col def="S0">Remark</col>
+		<col def="i4">Permission</col>
+		<col def="i4">MaxUsers</col>
 	</table>
 
 	<table name="ISObject">
@@ -2586,8 +2608,49 @@
 		<col def="i4">Attributes</col>
 	</table>
 
+	<table name="ISScheduledTasks">
+		<col key="yes" def="s72">ISScheduledTasks</col>
+		<col def="s72">Component_</col>
+		<col def="l255">TaskName</col>
+		<col def="L0">Comments</col>
+		<col def="s255">TaskRun</col>
+		<col def="S255">Arguments</col>
+		<col def="S72">WkDir</col>
+		<col def="S255">UserName</col>
+		<col def="S255">Password</col>
+		<col def="S255">StartTime</col>
+		<col def="s255">Schedule</col>
+		<col def="S255">Modifier</col>
+		<col def="S255">Days</col>
+		<col def="S255">Months</col>
+		<col def="I4">IdleTime</col>
+		<col def="S255">StartDate</col>
+		<col def="S255">EndDate</col>
+		<col def="I4">Attributes</col>
+	</table>
+
 	<table name="ISScriptFile">
 		<col key="yes" def="s255">ISScriptFile</col>
+	</table>
+
+	<table name="ISSearchReplace">
+		<col key="yes" def="s72">ISSearchReplace</col>
+		<col def="s72">ISSearchReplaceSet_</col>
+		<col def="S0">Search</col>
+		<col def="S0">Replace</col>
+		<col def="i2">Attributes</col>
+		<col def="i2">Order</col>
+	</table>
+
+	<table name="ISSearchReplaceSet">
+		<col key="yes" def="s72">ISSearchReplaceSet</col>
+		<col def="s72">Component_</col>
+		<col def="s72">Directory_</col>
+		<col def="S0">IncludeFiles</col>
+		<col def="S0">ExcludeFiles</col>
+		<col def="i2">Attributes</col>
+		<col def="i2">Order</col>
+		<col def="i2">CodePage</col>
 	</table>
 
 	<table name="ISSelfReg">
@@ -3991,7 +4054,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISUSLock</td><td>{6BC06219-5212-403B-963B-585D78A2C263}</td></row>
 		<row><td>ISUSSignature</td><td>{9963C0F8-6FF5-4591-A89A-BA9ACAAE5F7D}</td></row>
 		<row><td>ISVisitedViews</td><td>viewAssistant,viewISToday,viewAppFiles,viewProject,viewUI,viewTextMessages,viewObjects,viewRelease,viewDependencies,viewCustomActions</td></row>
-		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
 		<row><td>MsiLogFile</td><td/></row>
@@ -4002,8 +4064,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>SaveAsSchema</td><td/></row>
 		<row><td>SccEnabled</td><td>0</td></row>
 		<row><td>SccPath</td><td/></row>
-		<row><td>SchemaVersion</td><td>774</td></row>
-		<row><td>Type</td><td>MSIE</td></row>
+		<row><td>SchemaVersion</td><td>775</td></row>
+		<row><td>Type</td><td>MSI</td></row>
 	</table>
 
 	<table name="InstallUISequence">
@@ -4953,6 +5015,11 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISCustomActionReference</td><td>Description</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Contents of the file speciifed in ISCAReferenceFilePath. This column is only used by MSI.</td></row>
 		<row><td>ISCustomActionReference</td><td>FileType</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>file type of the file specified  ISCAReferenceFilePath. This column is only used by MSI.</td></row>
 		<row><td>ISCustomActionReference</td><td>ISCAReferenceFilePath</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Full path, the category is of Text instead of Path because of potential use of path variables.  This column only exists in ISM.</td></row>
+		<row><td>ISDIM</td><td>DIM</td><td>N</td><td/><td/><td/><td/><td>Identifier</td><td/><td>The GUID identifying the DIM</td></row>
+		<row><td>ISDIM</td><td>Destination</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Destination.</td></row>
+		<row><td>ISDIM</td><td>ISAttributes</td><td>Y</td><td/><td/><td/><td/><td/><td/><td>This is used to store Installshield custom properties of a DIM.</td></row>
+		<row><td>ISDIM</td><td>ISBuildSourcePath</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Full path, the category is of Text instead of Path because of potential use of path variables.</td></row>
+		<row><td>ISDIM</td><td>Name</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Name of the DIM.</td></row>
 		<row><td>ISDIMDependency</td><td>ISDIMReference_</td><td>N</td><td/><td/><td/><td/><td>Identifier</td><td/><td>This is the primary key to the ISDIMDependency table</td></row>
 		<row><td>ISDIMDependency</td><td>RequiredBuildVersion</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>the build version identifying the required DIM</td></row>
 		<row><td>ISDIMDependency</td><td>RequiredMajorVersion</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>the major version identifying the required DIM</td></row>
@@ -4999,6 +5066,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISDynamicFile</td><td>SourceFolder</td><td>N</td><td/><td/><td/><td/><td>Text</td><td/><td>Full path, the category is of Text instead of Path because of potential use of path variables.</td></row>
 		<row><td>ISFeatureDIMReferences</td><td>Feature_</td><td>N</td><td/><td/><td>Feature</td><td>1</td><td>Identifier</td><td/><td>Foreign key into Feature table.</td></row>
 		<row><td>ISFeatureDIMReferences</td><td>ISDIMReference_</td><td>N</td><td/><td/><td>ISDIMReference</td><td>1</td><td>Identifier</td><td/><td>Foreign key into ISDIMReference table.</td></row>
+		<row><td>ISFeatureDIMs</td><td>Feature_</td><td>N</td><td/><td/><td>Feature</td><td>1</td><td>Identifier</td><td/><td>Foreign key into Feature table.</td></row>
+		<row><td>ISFeatureDIMs</td><td>ISDIM_</td><td>N</td><td/><td/><td>ISDIM</td><td>1</td><td>Text</td><td/><td>Foreign key into ISDIM table.</td></row>
 		<row><td>ISFeatureMergeModuleExcludes</td><td>Feature_</td><td>N</td><td/><td/><td/><td/><td>Identifier</td><td/><td>Foreign key into Feature table.</td></row>
 		<row><td>ISFeatureMergeModuleExcludes</td><td>Language</td><td>N</td><td/><td/><td/><td/><td/><td/><td>Foreign key into ISMergeModule table.</td></row>
 		<row><td>ISFeatureMergeModuleExcludes</td><td>ModuleID</td><td>N</td><td/><td/><td/><td/><td>Identifier</td><td/><td>Foreign key into ISMergeModule table.</td></row>
@@ -5095,6 +5164,12 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISMergeModuleCfgValues</td><td>ModuleConfiguration_</td><td>N</td><td/><td/><td/><td/><td>Identifier</td><td/><td>Identifier, foreign key into ModuleConfiguration table (ModuleConfiguration.Name)</td></row>
 		<row><td>ISMergeModuleCfgValues</td><td>Type</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Type (from configurable merge module)</td></row>
 		<row><td>ISMergeModuleCfgValues</td><td>Value</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Value for this item.</td></row>
+		<row><td>ISNetworkShares</td><td>Component_</td><td>N</td><td/><td/><td>Component</td><td>1</td><td>Identifier</td><td/><td>Required foreign key into the Component Table.</td></row>
+		<row><td>ISNetworkShares</td><td>MaxUsers</td><td>N</td><td/><td/><td/><td/><td/><td/><td>The maximum number of concurrent connections that the shared resource can accommodate.</td></row>
+		<row><td>ISNetworkShares</td><td>Permission</td><td>N</td><td/><td/><td/><td/><td/><td/><td>Permission Access mask.</td></row>
+		<row><td>ISNetworkShares</td><td>Remark</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>The optional comment about the shared resource.</td></row>
+		<row><td>ISNetworkShares</td><td>ServerName</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>The DNS or NetBIOS name of the remote server on which the function is to execute.</td></row>
+		<row><td>ISNetworkShares</td><td>ShareName</td><td>N</td><td/><td/><td/><td/><td>Text</td><td/><td>The share name of the resource.</td></row>
 		<row><td>ISObject</td><td>Language</td><td>N</td><td/><td/><td/><td/><td>Text</td><td/><td/></row>
 		<row><td>ISObject</td><td>ObjectName</td><td>N</td><td/><td/><td/><td/><td>Text</td><td/><td/></row>
 		<row><td>ISObjectProperty</td><td>IncludeInBuild</td><td>Y</td><td/><td/><td/><td/><td/><td/><td>Boolean, 0 for false non 0 for true</td></row>
@@ -5308,7 +5383,39 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISSQLScriptReplace</td><td>ISSQLScriptReplace</td><td>N</td><td/><td/><td/><td/><td>Identifier</td><td/><td>Primary key used to identify a particular ISSQLScriptReplace record.</td></row>
 		<row><td>ISSQLScriptReplace</td><td>Replace</td><td>Y</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>ISSQLScriptReplace</td><td>Search</td><td>Y</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>ISScheduledTasks</td><td>Arguments</td><td>Y</td><td/><td/><td/><td/><td>Formatted</td><td/><td>An optional value that specifies the command line arguments for the program specified with the TaskRun column.</td></row>
+		<row><td>ISScheduledTasks</td><td>Attributes</td><td>Y</td><td/><td/><td/><td/><td/><td/><td>This column contains a bit flag that specifies options for the scheduled task.</td></row>
+		<row><td>ISScheduledTasks</td><td>Comments</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>The optional comment about the task.</td></row>
+		<row><td>ISScheduledTasks</td><td>Component_</td><td>N</td><td/><td/><td>Component</td><td>1</td><td>Identifier</td><td/><td>Required foreign key into the Component Table.</td></row>
+		<row><td>ISScheduledTasks</td><td>Days</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>A value that specifies the day of the week to run the task. Valid values are: MON, TUE, WED, THU, FRI, SAT, SUN and for MONTHLY schedules 1 - 31 (days of the month). The wildcard character (*) specifies all days.</td></row>
+		<row><td>ISScheduledTasks</td><td>EndDate</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Specifies the last date that the task is scheduled to run.</td></row>
+		<row><td>ISScheduledTasks</td><td>ISScheduledTasks</td><td>N</td><td/><td/><td/><td/><td>Identifier</td><td/><td>Primary key used to identify a particular ISScheduledTasks record.</td></row>
+		<row><td>ISScheduledTasks</td><td>IdleTime</td><td>Y</td><td/><td/><td/><td/><td/><td/><td>A value that specifies the amount of idle time to wait before running a scheduled ONIDLE task. The valid range is 1 - 999 minutes.</td></row>
+		<row><td>ISScheduledTasks</td><td>Modifier</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>A value that refines the schedule type to allow for finer control over the schedule recurrence.</td></row>
+		<row><td>ISScheduledTasks</td><td>Months</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>A value that specifies months of the year. Defaults to the first day of the month. Valid values are: JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, and DEC. The wildcard character (*) specifies all months.</td></row>
+		<row><td>ISScheduledTasks</td><td>Password</td><td>Y</td><td/><td/><td/><td/><td>Formatted</td><td/><td>A value that specifies the password for the user specified with the UserName column.</td></row>
+		<row><td>ISScheduledTasks</td><td>Schedule</td><td>N</td><td/><td/><td/><td/><td>Text</td><td/><td>A value that specifies the schedule frequency. Valid values are: MINUTE, HOURLY, DAILY, WEEKLY, MONTHLY, ONCE, ONLOGON, ONIDLE, and ONEVENT.</td></row>
+		<row><td>ISScheduledTasks</td><td>StartDate</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Specifies the date that the task starts in MM/DD/YYYY format.</td></row>
+		<row><td>ISScheduledTasks</td><td>StartTime</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>A value that specifies the start time to run the scheduled task.</td></row>
+		<row><td>ISScheduledTasks</td><td>TaskName</td><td>N</td><td/><td/><td/><td/><td>Text</td><td/><td>A value that specifies a name which uniquely identifies the scheduled task.</td></row>
+		<row><td>ISScheduledTasks</td><td>TaskRun</td><td>N</td><td/><td/><td/><td/><td>Text</td><td/><td>A value that specifies the path and file name of the task to be run at the scheduled time.</td></row>
+		<row><td>ISScheduledTasks</td><td>UserName</td><td>Y</td><td/><td/><td/><td/><td>Formatted</td><td/><td>A value that specifies the user context under which the task runs.</td></row>
+		<row><td>ISScheduledTasks</td><td>WkDir</td><td>Y</td><td/><td/><td/><td/><td>Identifier</td><td/><td>An optional value that specifies the working directory for the program specified with the TaskRun column.</td></row>
 		<row><td>ISScriptFile</td><td>ISScriptFile</td><td>N</td><td/><td/><td/><td/><td>Text</td><td/><td>This is the full path of the script file. The path portion may be expressed in path variable form.</td></row>
+		<row><td>ISSearchReplace</td><td>Attributes</td><td>N</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>ISSearchReplace</td><td>ISSearchReplace</td><td>N</td><td/><td/><td/><td/><td>Identifier</td><td/><td>Primary key used to identify a particular ISSearchReplace record.</td></row>
+		<row><td>ISSearchReplace</td><td>ISSearchReplaceSet_</td><td>N</td><td/><td/><td>ISSearchReplaceSet</td><td>1</td><td>Identifier</td><td/><td>Foreign key referencing ISSearchReplaceSet.</td></row>
+		<row><td>ISSearchReplace</td><td>Order</td><td>N</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>ISSearchReplace</td><td>Replace</td><td>Y</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>ISSearchReplace</td><td>Search</td><td>Y</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>ISSearchReplaceSet</td><td>Attributes</td><td>N</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>ISSearchReplaceSet</td><td>CodePage</td><td>N</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>ISSearchReplaceSet</td><td>Component_</td><td>N</td><td/><td/><td>Component</td><td>1</td><td>Identifier</td><td/><td>Foreign key referencing Component that controls the text file change.</td></row>
+		<row><td>ISSearchReplaceSet</td><td>Directory_</td><td>N</td><td/><td/><td>Directory</td><td>1</td><td>Identifier</td><td/><td>Foreign key referencing Directory that contains the text files.</td></row>
+		<row><td>ISSearchReplaceSet</td><td>ExcludeFiles</td><td>Y</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>ISSearchReplaceSet</td><td>ISSearchReplaceSet</td><td>N</td><td/><td/><td/><td/><td>Identifier</td><td/><td>Primary key used to identify a particular ISSearchReplaceSet record.</td></row>
+		<row><td>ISSearchReplaceSet</td><td>IncludeFiles</td><td>Y</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>ISSearchReplaceSet</td><td>Order</td><td>N</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>ISSelfReg</td><td>CmdLine</td><td>Y</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>ISSelfReg</td><td>Cost</td><td>Y</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>ISSelfReg</td><td>FileKey</td><td>N</td><td/><td/><td>File</td><td>1</td><td>Identifier</td><td/><td>Foreign key to the file table</td></row>

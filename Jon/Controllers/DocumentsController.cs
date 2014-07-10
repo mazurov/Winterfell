@@ -16,11 +16,13 @@ namespace Jon.Controllers
         // this example uses EntityFramework CodeFirst
         private DocumentsContext _ctx = new DocumentsContext();
 
+  
+
         [EnableQuery]
         [ODataRoute]
         public IHttpActionResult Get()
         {
-            return Ok(_ctx.Documents);
+             return Ok(_ctx.Documents);
         }
 
         [EnableQuery]

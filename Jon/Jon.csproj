@@ -48,17 +48,14 @@
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.OData.Core, Version=6.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.OData.Core.6.4.0\lib\portable-net40+sl5+wp8+win8\Microsoft.OData.Core.dll</HintPath>
+    <Reference Include="Microsoft.OData.Core">
+      <HintPath>..\packages\Microsoft.OData.Core.6.5.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.OData.Edm, Version=6.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.OData.Edm.6.4.0\lib\portable-net40+sl5+wp8+win8\Microsoft.OData.Edm.dll</HintPath>
+    <Reference Include="Microsoft.OData.Edm">
+      <HintPath>..\packages\Microsoft.OData.Edm.6.5.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Edm.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Spatial, Version=6.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Spatial.6.4.0\lib\portable-net40+sl5+wp8+win8\Microsoft.Spatial.dll</HintPath>
+    <Reference Include="Microsoft.Spatial">
+      <HintPath>..\packages\Microsoft.Spatial.6.5.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -73,8 +70,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Cors, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="System.Web.Cors">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.0\lib\net45\System.Web.Cors.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
@@ -90,8 +86,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Http.Cors, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="System.Web.Http.Cors">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.0\lib\net45\System.Web.Http.Cors.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -141,8 +136,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ModelBuilder.cs" />
-    <Compile Include="ODataErrors.cs" />
-    <Compile Include="ODataHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +148,8 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\Jon File.pubxml" />
+    <None Include="Properties\PublishProfiles\Jon.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -166,10 +161,6 @@
     <ProjectReference Include="..\Eddard\Eddard.csproj">
       <Project>{6838e104-9800-4d06-b0a0-66704a61e2d5}</Project>
       <Name>Eddard</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebApiContrib.Formatting.Jsonp\WebApiContrib.Formatting.Jsonp.csproj">
-      <Project>{cd617362-8723-4592-a3b3-d2fbef645cd2}</Project>
-      <Name>WebApiContrib.Formatting.Jsonp</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
