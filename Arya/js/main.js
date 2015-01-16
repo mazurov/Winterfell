@@ -36,7 +36,7 @@ Unep.Pubs = (function() {
       name: "Arabic",
       title: "العربية"
     }, {
-      name: "Chinise",
+      name: "Chinese",
       title: "中国的"
     }
   ];
