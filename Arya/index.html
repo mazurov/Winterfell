@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='content-type'>
+    <title>Publications</title>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js' type='text/javascript'></script>
+    <!-- START -->
+    <script src='http://amazurov.web.cern.ch/amazurov/brs/proto/js/console.js'></script>
+    <script src='http://cdn.kendostatic.com/2014.1.416/js/kendo.all.min.js' type='text/javascript'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/async/0.9.0/async.js' type='text/javascript'></script>
+    <link href='http://cdn.kendostatic.com/2014.1.416/styles/kendo.common.min.css' rel='stylesheet'>
+    <link href='http://cdn.kendostatic.com/2014.1.416/styles/kendo.default.min.css' rel='stylesheet'>
+    <link href='http://amazurov.web.cern.ch/amazurov/brs/proto/css/main.css' rel='stylesheet'>
+    <!-- END -->
+  </head>
+  <body>
+    <!-- START -->
+    <div class='container'>
+      <div class='alert alert-danger' id='arya-error' style='display:none'></div>
+      <h1>Synergies Publicatons</h1>
+      <div id='arya-filters'>
+        <div class='arya-filter arya-terms-container'>
+          Keywords
+          <select id='arya-terms'></select>
+        </div>
+        <div class='arya-filter arya-repositories-container'>
+          <table id='arya-repositories-table'>
+            <tr id='arya-repositories'></tr>
+          </table>
+        </div>
+        <div class='arya-cycles-container arya-filter'>
+          Life cycles
+          <select id='arya-cycles'></select>
+        </div>
+        <div class='arya-chemicals-container arya-filter'>
+          Chemicals
+          <select id='arya-chemicals'></select>
+        </div>
+      </div>
+      <table id='arya-list'></table>
+      <div class='row'>
+        <div class='col-md-12' id='arya-pager'></div>
+      </div>
+    </div>
+    <!-- BEGIN TEMPLATES -->
+    <!-- BEGIN MAIN LIST TEMPLATE -->
+    <script id='arya-list-template' type='text/x-kendo-tmpl'>
+      <tr class='arya-row row' data-id='doc-#= DocumentId#' data-unnumber='#= UNNumber #' data-convention='#= Repository.Guid#'>
+        <td class='arya-row-image'>
+          <div class=' image-cropper arya-convention-#= Repository.Guid#'>
+            <img class='arya-thumbnail' src='http://informea.pops.int/mfthumbs/thumbnail.new?vault=#= Repository.Name#&file=#= NameOrTitle#.pdf'>
+          </div>
+        </td>
+        <td>
+          <div class='arya-row-meta'>
+            <div class='arya-row-title'>
+              #= Title #
+            </div>
+            <div class='arya-row-pubdate'>
+              #= PubDateFormatted #
+            </div>
+            <div class='arya-row-unnumber'>
+              #= UNNumber #
+            </div>
+            <div class='arya-description'>
+              #= Description #
+            </div>
+          </div>
+          <div class='arya-row-files'></div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan='2'>
+          <hr>
+        </td>
+      </tr>
+    </script>
+    <!-- END MAIN LIST TEMPLATE -->
+    <!-- BEGIN CONVENTIONS TEMPLATE -->
+    <script id='arya-repositorie-template' type='text/x-kendo-tmpl'>
+      <td>
+        <label for='arya-repo-#= Guid#'></label>
+        #= Title #
+        <input class='arya-convention-#= Guid#' id='arya-repo-#= Guid#' type='checkbox' name='arya-repositories' value='#= Guid#'>
+      </td>
+    </script>
+    <!-- END CONVENTIONS TEMPLATE -->
+    <!-- BEGIN DOWNLOAD FILES TEMPLATE -->
+    <script id='arya-files-template' type='text/x-kendo-tmpl'># for (var i = 0; i < data.length; i++) { #
+      <a class='arya-file' href='#= data[i].Url#'>
+        #= data[i].Lang #
+      </a>
+      # } #
+    </script>
+    <!-- END DOWNLOAD FILES TEMPLATE -->
+    <!-- END TEMPLATES -->
+    <a class='back-to-top' href='#'>
+      <img src='http://amazurov.web.cern.ch/amazurov/brs/proto/img/back_to_top.png' alt='Back to top' title='Back to top'>
+    </a>
+    <!-- %script{:src => "js/main.js", :type => "text/javascript"} -->
+    <script src='http://amazurov.web.cern.ch/amazurov/brs/proto/js/main.js' type='text/javascript'></script>
+    <!-- END -->
+  </body>
+</html>
