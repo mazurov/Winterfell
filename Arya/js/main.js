@@ -137,7 +137,7 @@ Unep.Pubs = (function() {
         _ref = data.d.results;
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           item = _ref[_i];
-          _lifeCycles.push(item.Name);
+          _lifeCycles.push(item.name);
         }
         return callback(null);
       }
