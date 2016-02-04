@@ -122,9 +122,9 @@ Unep.Pubs = (function() {
   initLifeCycles = function(callback) {
     console.debug("Init Life Cycles");
     $.ajax({
-      url: "http://informea.pops.int/Meetings2/asbMeetings.svc/Terms",
+      url: "http://informea.pops.int/Meetings/Conferences.svc/Terms",
       data: {
-        $filter: "substringof('Life Cycle Steps',ParentTermNames)",
+        $filter: "substringof('Life Cycle Steps',parentNames)",
         $format: "json"
       },
       dataType: "jsonp",
